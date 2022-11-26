@@ -8,6 +8,7 @@ This app
 -   is in line with CRUD requirements (tested for all four succefully)
 -   has two entities (Pastries and reviews associated if any)
 -   is connected to MongoDB cloud
+-   has a combination of bootstrap and custom CSS styling
 -   deployed to Heroku
 
 # How to run the app
