@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+    
+    <p> <%= title %> using views-pastries-index</p>
+
+   <div class="indexContent">
+    <table>
+      <thead>
+        <tr class="tableheadings">
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Detail</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Write the line of EJS to iterate over movies using forEach -->
+        <% pastries.forEach(function(p){ %>
+            <tr class="tablecontent">
+            <td><a href="/pastries/<%=p._id %>"><%= p.title %></a></td>
+            
+            <td><%= p.detail %></td>
+            <td>$<%= p.price %></td>
+           
+          <% }) %>
+        <!-- Close the forEach using EJS here -->
+      </tbody>
+    </table>
+  </div>
+
+    <%- include('../partials/footer') %>

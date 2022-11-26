@@ -1,11 +1,144 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+      background-image: url('https://i.imgur.com/Wk8WJFd.jpg');
+      background-size: cover;
+      height: 250px;
+    }
+    body{
+      background-color: lightgray;
+    }
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+   
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>     
+      </button>
+     
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/pastries/new" <%- title === 'Add new Pastry here' ? 'class="active"' : '' %>>Add Product</a></li>
+        <li><a href="/pastries" <%- title === 'All Pastries' ? 'class="active"' : '' %>>All Products</a></li>
+        <li><a href="#">Contact</a></li>
+        </ul>
+              
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li>    <% if (user) { %>
+          <a href="/logout"><i class="material-icons left">trending_flat</i>LOG OUT</a>
+          <% } else { %>
+            <a href="/auth/google" style="padding-right: 10px;">LOGIN WITH GOOGLE</a>
+            <% } %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="mainBody">
+  <div class="titlePanel" style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" >
+  <a class="brandLogo" href="/"><img src="https://i.imgur.com/bVwMYli.png" width="250px" style="padding-bottom: 15px; margin-bottom: 5px" /></a>
+  <h1>Featured Products</h1>
+  <br>  
+</div>
+<div><%= pastries.detail %></div>
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-success">
+       
+        <div class="panel-body"><img src="https://i.imgur.com/vqoaIRX.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+      
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <!-- <div class="panel-heading">BLACK FRIDAY DEAL</div> -->
+        <div class="panel-body"><img src="https://i.imgur.com/STXCMrR.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+        <!-- <div class="panel-footer">Buy 50 mobiles and get a gift card</div> -->
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+       
+        <div class="panel-body"><img src="https://i.imgur.com/5Dc5Nil.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+       
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<!-- <div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+  </div>
+</div><br><br> -->
+</div>
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright 2022</p>  
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-danger">Sign Up</button>
+  </form>
+</footer>
+
+</body>
 </html>
+ 

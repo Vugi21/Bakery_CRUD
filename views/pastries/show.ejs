@@ -1,0 +1,80 @@
+<%- include('../partials/header') %>
+
+  <hr>
+<form action="/pastries" method="POST">
+<div class="productPage">
+    <div class="productImg">
+            <img src="/images/gogalImg.jpeg" width="300" alt="">
+    </div>
+    <div class="productDescription">
+        <div>
+            <div><strong> Product Name: <%= itemDescription.title %></strong></div>
+            <div> Price: <%= itemDescription.price %></div>
+            <div> Description: <%= itemDescription.detail %></div>
+        </div>
+    </div>
+    <div class="reviewPanel">
+        <h2>Reviews</h2>
+        <form id="add-review-form" method="POST" action="/pastries/<%= itemDescription._id %>/reviews">
+          <label>Review:</label>
+          <textarea name="content" style="width: 95%;"></textarea>
+          <label>Rating:</label>
+          <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <br>
+          <input type="submit" value="Add Review">
+        </form>
+        
+    
+    </div>  
+</div>
+
+<button><a href="/pastries/<%= itemDescription._id %>/edit"> Update </a></button>
+</form>
+    <form style="display: flex;" action="/pastries/<%= itemDescription._id %>?_method=DELETE" method="POST">
+    <button style="display: flex;" type="submit"> Delete Product </button>
+    </form>     
+
+       
+
+    <br><br>
+    <hr>
+ <div class="reviewList">
+    <% if (itemDescription.reviews.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%; padding: 0 10px 0 10px;">User &nbsp</th>
+              <th style="width: 25%; padding: 0 10px 0 10px;">Date &nbsp</th>
+              <th style="width: 25%; padding: 0 10px 0 10px;">Review &nbsp</th>
+              <th sstyle="width: 25%; padding: 0 10px 0 10px;">Rating &nbsp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let total = 0 %>
+            <% itemDescription.reviews.forEach(function(p) { %>
+              <% total += p.rating %>
+              <tr>
+                <td style="width: 25%; padding: 0 10px 0 10px;"><%= p.user %>&nbsp</td>
+                <td style="width: 25%; padding: 0 10px 0 10px;"><%= p.createdAt.toLocaleDateString() %>&nbsp</td>
+                <td style="width: 25%; padding: 0 10px 0 10px;"><%= p.content %>&nbsp</td>
+                <td style="width: 25%; padding: 0 10px 0 10px;"><%= p.rating %>&nbsp</td>
+              </tr>
+            <% }); %>
+            <tr>
+              <td colspan="3"><strong>Average Rating</strong></td>
+              <td><strong><%= (total / itemDescription.reviews.length).toFixed(1) %></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h5>No Reviews Yet</h5>
+      <% } %>
+ </div>
+
+<%- include('../partials/footer') %>

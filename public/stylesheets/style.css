@@ -1,9 +1,22 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(0, 255, 26);
-}
+
+
 
 a {
   color: #00B7FF;
+}
+.tableheadings{
+  background-color: rgba(211, 211, 211, 0.882);
+  align-items: center;
+
+}
+.tablecontent{
+align-items: center;
+
+}
+
+
+
+
+.titlePanel{
+  justify-content: center;
 }
