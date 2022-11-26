@@ -14,7 +14,7 @@ function getAll(req, res){
 
 function newPastry(req, res){
     res.render('pastries/new', {
-        title: 'Add new Pastry here',
+        title: 'Add New Pastry Here',
         user: req.user
     })
 }

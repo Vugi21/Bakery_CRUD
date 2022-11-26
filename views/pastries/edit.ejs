@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
 
   <hr>
-  <p>Test Edit view</p>
+  <div class="newProduct" style="padding: 0 10px 0 10px">
   <form action="/pastries/<%= itemEdit._id %>?_method=PUT" method="POST">
+  
     <label>Pastry Name:
       <input type="text" required name="title" value="<%= itemEdit.title %>">
     </label><br>
@@ -11,8 +12,8 @@
     </label><br>
     <label>Detail:
      
-        <textarea type="text" required name="detail" style="height: 100px; width: 25%; text-align: justify;"><%= itemEdit.detail %></textarea>
-
+        <textarea type="text" required name="detail" style="height: 100px; width: 100%; text-align: justify;"><%= itemEdit.detail %></textarea>
+    </div>
       </label><br>
       <input type="submit" value="Save Update">
 

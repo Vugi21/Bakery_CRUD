@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><%= title %></title>
+  <title style="padding-right: 10px;"><%= title %></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -30,26 +30,56 @@
 
     }
     .productPage{
+      
+      resize: both;
+      overflow: auto;
       display: flex;
       width: 100%;
     }
     .productImg{
       display: flex;
-      width: 15%;
+     
       padding: 10px;
     }
     .productDescription{
-      display: inline-block;
-      height: 15px;
+      display: flex;
+      justify-content: space-between;
       padding: 10px;
-      width: 45%;
+    
+      resize: both;
+      overflow: auto;
+    
     }   
     .reviewPanel{
-      width: 30%;
+     display: block;
+    
+      padding: 10px;
     }
     .reviewList{
       padding-inline: 5px;
     }
+    .indexContent{
+      padding: 5px 10px;
+    }
+
+    a {
+      color: #00B7FF;
+    }
+    .tableheadings{
+      background-color: rgba(211, 211, 211, 0.882);
+      align-items: center;
+      font-size: x-large;
+
+    }
+    .tablecontent{
+    align-items: center;
+    font-size: large;
+    }
+    label{
+      width: 45%;
+    }
+
+
   </style>
 </head>
 <body>
@@ -92,4 +122,4 @@
   </div>
 </nav>
   <main>
-    <h1><%= title %></h1>
+    <h1 style="padding-left: 20px;"><%= title %></h1>
