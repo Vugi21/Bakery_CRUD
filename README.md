@@ -12,7 +12,7 @@ This app
 -   deployed to Heroku
 
 # How to run the app
-App can be ran via Heroku using the following link: <a href="https://crud-bakery-new.herokuapp.com/">Click Here</a>
+App can be ran via Heroku using the following link: <a href="https://crud-bakery-v1.herokuapp.com/">Click Here</a>
 
 # Screenshot of the home page and Trello progress
 
